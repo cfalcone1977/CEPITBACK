@@ -53,14 +53,14 @@ busquedaxYear(Peliculas:Pelicula[],year:number):Pelicula[]{
     return peliculasxYear;
 }
 busquedaxTitulo(Peliculas:Pelicula[],titulo:string):Pelicula[]{
-    const peliculasxTitulo:Pelicula[]=Peliculas.filter((elemento)=>{
-                                 return elemento.title===titulo;
+    const peliculasxTitulo:Pelicula[]=Peliculas.filter((elemento)=>{                    
+                                 return elemento.title.toUpperCase().includes(titulo.toUpperCase());//elemento.title.toUpperCase()===titulo.toUpperCase(); //comparacion ambos en MAYUSCULAS
                                     });
     return peliculasxTitulo;                                  
 }
 busquedaxDirector(Peliculas:Pelicula[],director:string):Pelicula[]{
     const peliculasxDirector:Pelicula[]=Peliculas.filter((elemento)=>{
-                                 return elemento.director===director;
+                                 return elemento.director.toUpperCase().includes(director.toUpperCase());//elemento.director.toUpperCase()===director.toUpperCase(); //comparacion ambos en MAYUSCULAS
                                     });
     return peliculasxDirector;                                  
 }

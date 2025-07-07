@@ -28,7 +28,9 @@ export class MovieService{
                                    const existe:boolean = this.movieRepository.existePelicula(arregloPeliculas,Number(posicion));
                                     if (existe) {
                                                   console.warn("Pelicula x INDICE ENCONTRADA");
-                                                  return(arregloPeliculas[Number(posicion)]);
+                                                  const arregloPeliculaxPosicion:Pelicula[]=[];
+                                                  arregloPeliculaxPosicion.push(arregloPeliculas[Number(posicion)]);
+                                                  return(arregloPeliculaxPosicion);
                                                 } else return({message:"Pelicula Inexistente"});
                                    }else return({message:"Ruta o Archivo INEXISTENTE"});
 
