@@ -1,9 +1,4 @@
-//import { Request, Response} from "express";
-//import { request } from "http";
-//import { ParsedQs } from "qs";
 import { Pelicula } from "../models/pelicula";
-//import { leerArchivoPeliculas, guardarArchivoPeliculas, dataPath, buscarPosicion } from "../utils";
-//import { existePelicula, busquedaxYear, busquedaxID, existeArchivo} from "../utils";
 import { MoviesRepository } from "../repositories/clients.repository";
 import { queriesPelicula } from "../models/queryfiltro";
 
@@ -122,9 +117,6 @@ export class MovieService{
                              return(arregloPeliculas)
                                        } else return ({message:"NO HAY PELICULA/S PARA ESOS FILTROS"});
                                              }else return({message:"Ruta o Archivo INEXISTENTE"});  
-            /*      if (typeof(argumentos.genero)==="string"){  //estaba pensando en varios generos, pero no, solo 1
-                                                            console.log("1");
-                                             } else console.log(argumentos.genero.length);*/
    }
 
 }
