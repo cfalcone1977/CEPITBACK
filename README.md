@@ -108,6 +108,14 @@ _http://localhost:3000/pelicula?year=2014&genero=Drama_
 ]    
 
 
+**Ejemplo de Respuesta (200 OK - Sin resultados para filtros):**  
+
+{  
+  "message": "NO HAY PELICULA/S PARA ESOS FILTROS"  
+}  
+
+
+  
 
 
 
