@@ -83,4 +83,34 @@ _http://localhost:3000/pelicula?year=2014&genero=Drama_
 
 
 
+**Ejemplo de Respuesta (200 OK - Lista completa o filtrada):**
+[  
+  {  
+    "id": "abc1",  
+    "titulo": "El Gran Hotel Budapest",   
+    "year": 2014,  
+    "director": "Wes Anderson",  
+    "duracion": "1h 39m",  
+    "poster": "url_poster_1.jpg",  
+    "generos": ["Comedia", "Aventura"],  
+    "sinopsis": "Las aventuras de Gustave H, el conserje de un famoso hotel europeo..."  
+  },  
+  {  
+    "id": "newIdGenerated",  
+    "titulo": "Interestelar",  
+    "year": 2014,  
+    "director": "Christopher Nolan",  
+    "duracion": "2h 49m",  
+    "poster": "url_poster_interstellar.jpg",  
+    "generos": ["Ciencia Ficción", "Drama"],  
+    "sinopsis": "Un grupo de exploradores espaciales viaja a través de un agujero de gusano..."  
+  }  
+]    
+
+
+
+
+
+
+
   
