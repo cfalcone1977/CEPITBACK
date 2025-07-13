@@ -56,10 +56,11 @@ La API de películas se expone bajo la ruta base /pelicula.
 La URL base para todos los endpoints es:
 http://localhost:3000/pelicula
 
-#Endpoints
-1. Obtener todas las películas o filtrar por criterios.
+## Endpoints
+
+### Obtener todas las películas o filtrar por criterios.
    
-GET /pelicula
+## GET /pelicula
 
 **Descripción:** Retorna una lista de todas las películas. Permite filtrar la colección por 
 título, año, director o género mediante parámetros de consulta.
@@ -84,13 +85,14 @@ _http://localhost:3000/pelicula?year=2014&genero=Drama_
 
 
 **Ejemplo de Respuesta (200 OK - Lista completa o filtrada):**
+
 [  
   {  
     "id": "abc1",  
     "titulo": "El Gran Hotel Budapest",   
     "year": 2014,  
     "director": "Wes Anderson",  
-    "duracion": "1h 39m",  
+    "duracion": 139,  
     "poster": "url_poster_1.jpg",  
     "generos": ["Comedia", "Aventura"],  
     "sinopsis": "Las aventuras de Gustave H, el conserje de un famoso hotel europeo..."  
@@ -100,7 +102,7 @@ _http://localhost:3000/pelicula?year=2014&genero=Drama_
     "titulo": "Interestelar",  
     "year": 2014,  
     "director": "Christopher Nolan",  
-    "duracion": "2h 49m",  
+    "duracion": 249,  
     "poster": "url_poster_interstellar.jpg",  
     "generos": ["Ciencia Ficción", "Drama"],  
     "sinopsis": "Un grupo de exploradores espaciales viaja a través de un agujero de gusano..."  
@@ -113,6 +115,48 @@ _http://localhost:3000/pelicula?year=2014&genero=Drama_
 {  
   "message": "NO HAY PELICULA/S PARA ESOS FILTROS"  
 }  
+
+### Obtener película por índice (posición arreglo)  
+
+## GET /pelicula/:posicion  
+
+**Descripción:** Retorna una película específica basada en su posición (índice numérico) en el array de películas.  
+
+**Parámetros de Ruta:**  
+:posicion (obligatorio, number): El índice numérico de la película a obtener (ej. 0 para la primera película, 1 para la segunda, etc.).
+
+**Ejemplo de Solicitud:**  
+
+_http://localhost:3000/pelicula/0_  
+
+**Ejemplo de Respuesta (200 OK):**  
+
+[  
+  {  
+    "id": "abc1",  
+    "titulo": "El Gran Hotel Budapest",  
+    "year": 2014,  
+    "director": "Wes Anderson",  
+    "duracion": 139,  
+    "poster": "url_poster_1.jpg",  
+    "generos": ["Comedia", "Aventura"],  
+    "sinopsis": "Las aventuras de Gustave H, el conserje de un famoso hotel europeo..."  
+  }
+]
+
+Ejemplo de Respuesta (cuando el indice no existe en el arreglo):
+
+{
+  "message": "Pelicula Inexistente"
+}
+
+**Códigos de Estado:**  
+
+200 OK: Solicitud exitosa.  
+200 OK: Si el índice no existe.  
+404 URL mal escrita o inexistente en servidor.
+500 Internal Server Error: Error en el servidor.  
+
 
 
   
