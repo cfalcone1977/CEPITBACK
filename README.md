@@ -160,7 +160,7 @@ Ejemplo de Respuesta (cuando el indice no existe en el arreglo):
   
     
     
-### Obtener películas por año (Ruta específica)  
+### Obtener películas por año.  
 ## GET /pelicula/year/:year  
 **Descripción:** Retorna una lista de películas lanzadas en un año específico.  
 
@@ -192,10 +192,90 @@ _http://localhost:3000/pelicula/year/1994_
   "message": "No existe/n pelicula/s con ese Año"  
 }  
 **Códigos de Estado:**  
-200 OK: Solicitud exitosa.    
+200 OK: Solicitud exitosa.  
+200 OK: No existe/n pelicula/s con ese Año.
 500 Internal Server Error: Error en el servidor.    
 
+### Obtener película por ID  
+## GET /pelicula/id/:id  
+  
+**Descripción:** Retorna una película específica basada en su ID único.  
+  
+**Parámetros de Ruta:**  
+:id (obligatorio, string): El ID único de la película a obtener (ej. 119a4ae3-e35f-4b6c-86a7).      
 
+**Ejemplo de Solicitud:**  
+  
+_http://localhost:3000/pelicula/id/119a4ae3-e35f-4b6c-86a7_  
+
+**Ejemplo de Respuesta (200 OK):**  
+  
+[  
+  {  
+    "id": "119a4ae3-e35f-4b6c-86a7",  
+    "titulo": "El Gran Hotel Budapest",  
+    "year": 2014,  
+    "director": "Wes Anderson",  
+    "duracion": 139,  
+    "poster": "url_poster_1.jpg",  
+    "generos": ["Comedia", "Aventura"],  
+    "sinopsis": "Las aventuras de Gustave H, el conserje de un famoso hotel europeo..."  
+  }  
+]  
+  
+**Ejemplo de Respuesta (si id no existe):**  
+{  
+  "message": "No existen peliculas con ese ID"  
+}  
+  
+**Códigos de Estado:**
+200 OK: Solicitud exitosa.  
+200 OK: Si el ID no existe.  
+500 Internal Server Error: Error en el servidor.  
+  
+  
+### Agregar una nueva película.  
+## POST /pelicula/agregar  
+
+**Descripción:** Agrega una nueva película a la colección. Se espera un objeto Pelicula en el 
+cuerpo de la solicitud(body). El id puede ser generado automáticamente por el backend si no se provee, 
+o puedes incluirlo si tienes un sistema de IDs predefinido.  
+
+**Cuerpo de la Solicitud (Request Body - application/json):**  
+{
+  "id": "new-movie-id",  
+  "titulo": "El Señor de los Anillos: La Comunidad del Anillo",  
+  "year": 2001,  
+  "director": "Peter Jackson",  
+  "duracion": 258,  
+  "poster": "url_poster_lotr.jpg",  
+  "generos": ["Aventura", "Fantasía"],  
+  "sinopsis": "Un hobbit hereda un anillo mágico y emprende una búsqueda para destruirlo."  
+}  
+
+  
+**Ejemplo de Solicitud:**
+_POST -H "Content-Type: application/json" \_
+     -d '{  
+           "id": "new-movie-id",  
+           "titulo": "El Señor de los Anillos: La Comunidad del Anillo",  
+           "year": 2001,  
+           "director": "Peter Jackson",  
+           "duracion": 258,  
+           "poster": "url_poster_lotr.jpg",  
+           "generos": ["Aventura", "Fantasía"],  
+           "sinopsis": "Un hobbit hereda un anillo mágico y emprende una búsqueda para destruirlo."    
+         }' \    
+     _http://localhost:3000/pelicula/agregar_  
+  
+**Ejemplo de Respuesta (200 OK):**  
+{  
+  "message": "Pelicula agregada exitosamente"  
+}  
+  
+**Códigos de Estado:**  
+200 OK: Película agregada exitosamente.  
+500 Internal Server Error: Error en el servidor (ej. archivo movies.json no encontrado).  
 
 
   
