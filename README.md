@@ -158,6 +158,45 @@ Ejemplo de Respuesta (cuando el indice no existe en el arreglo):
 500 Internal Server Error: Error en el servidor.  
 
 
+### Obtener películas por año (Ruta específica)  
+
+## GET /pelicula/year/:year  
+
+**Descripción:** Retorna una lista de películas lanzadas en un año específico.  
+
+**Parámetros de Ruta:**  
+
+:year (obligatorio, number): El año de lanzamiento de las películas (ej. 1994).  
+
+**Ejemplo de Solicitud:**  
+
+_http://localhost:3000/pelicula/year/1994_
+
+**Ejemplo de Respuesta (200 OK):**  
+[  
+  {  
+    "id": "def2",  
+    "titulo": "Pulp Fiction",  
+    "year": 1994,  
+    "director": "Quentin Tarantino",  
+    "duracion": 234,    
+    "poster": "url_poster_2.jpg",  
+    "generos": ["Crimen", "Drama"],  
+    "sinopsis": "Las vidas de dos sicarios de la mafia, un boxeador, la esposa de un gánster y un par de ladrones se entrelazan..."  
+  }  
+]  
+
+
+**Ejemplo de Respuesta (200 OK - Sin resultados):**  
+{  
+  "message": "No existe/n pelicula/s con ese Año"  
+}  
+**Códigos de Estado:**  
+200 OK: Solicitud exitosa.    
+500 Internal Server Error: Error en el servidor.    
+
+
+
 
   
 
