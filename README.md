@@ -333,7 +333,7 @@ curl -X DELETE _http://localhost:3000/pelicula/119a4ae3-e35f-4b6c-86a7_
   "message": "Pelicula ELIMINADA EXITOSAMENTE"  
 }  
   
-**Ejemplo de Respuesta (404 Not Found):**
+**Ejemplo de Respuesta (200 OK):**
 {  
   "message": "IDENTIFICADOR INEXISTENTE"  
 }  
