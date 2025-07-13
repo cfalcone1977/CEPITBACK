@@ -156,12 +156,12 @@ Ejemplo de Respuesta (cuando el indice no existe en el arreglo):
 200 OK: Si el índice no existe.  
 404 URL mal escrita o inexistente en servidor.
 500 Internal Server Error: Error en el servidor.  
-
-
+  
+  
+    
+    
 ### Obtener películas por año (Ruta específica)  
-
 ## GET /pelicula/year/:year  
-
 **Descripción:** Retorna una lista de películas lanzadas en un año específico.  
 
 **Parámetros de Ruta:**  
