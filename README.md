@@ -278,6 +278,70 @@ _POST -H "Content-Type: application/json" \_
 500 Internal Server Error: Error en el servidor (ej. archivo movies.json no encontrado).  
 
 
+
+### Modificar una película existente  
+## PUT /pelicula/:id     
+  
+**Descripción:** Modifica los datos de una película existente identificada por su ID. Se espera un objeto Pelicula (o un subconjunto de sus campos) en el cuerpo de la solicitud(body) con los datos a actualizar.  
+  
+**Parámetros de Ruta:**  
+:id (obligatorio, string): El ID único de la película a modificar (ej. 119a4ae3-e35f-4b6c-86a7).  
+  
+Cuerpo de la Solicitud (Request Body - application/json):  
+{  
+  "titulo": "El Gran Hotel Budapest (Versión Extendida)",  
+  "duracion": 210   
+}  
+  
+**Ejemplo de Solicitud:**  
+curl -X PUT -H "Content-Type: application/json" \  
+     -d '{  
+           "titulo": "El Gran Hotel Budapest (Versión Extendida)",  
+           "duracion": 210,  
+         }' \  
+     _http://localhost:3000/pelicula/119a4ae3-e35f-4b6c-86a7_
+  
+**Ejemplo de Respuesta (200 OK):**  
+{  
+  "message": "Pelicula MODIFICADA EXITOSAMENTE"  
+}  
+  
+**Ejemplo de Respuesta (200 OK):**
+{  
+  "message": "IDENTIFICADOR INEXISTENTE"  
+}  
+  
+**Códigos de Estado:**  
+200 OK: Película modificada exitosamente.  
+200 OK: Found: Si el ID de la película no existe.  
+500 Internal Server Error: Error en el servidor.  
+
+### Eliminar una película  
+## DELETE /pelicula/:id  
+  
+**Descripción:** Elimina una película de la colección basada en su ID único.  
+  
+**Parámetros de Ruta:**  
+:id (obligatorio, string): El ID único de la película a eliminar (ej.: 119a4ae3-e35f-4b6c-86a7).  
+
+**Ejemplo de Solicitud:**  
+  
+curl -X DELETE _http://localhost:3000/pelicula/119a4ae3-e35f-4b6c-86a7_  
+  
+**Ejemplo de Respuesta (200 OK):**  
+{  
+  "message": "Pelicula ELIMINADA EXITOSAMENTE"  
+}  
+  
+**Ejemplo de Respuesta (404 Not Found):**
+{  
+  "message": "IDENTIFICADOR INEXISTENTE"  
+}  
+  
+**Códigos de Estado:**  
+200 OK: Película eliminada exitosamente.    
+200 OK: Si el ID de la película no existe.    
+500 Internal Server Error: Error en el servidor.    
   
 
 
